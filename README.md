@@ -77,6 +77,8 @@ pip install -r requirements.txt
 
 ## 🔧 Proxy Configuration
 
+MCP-Watchdog uses a topic-based anomaly detection approach. The detector learns normal topic patterns from legitimate usage and flags requests containing predominantly new/unknown topics as anomalies. It uses a simple bag-of-words approach with configurable sensitivity, requiring minimal training data (10-20 sessions) to establish baselines.
+
 ### Understanding the Proxy Setup
 
 MCP-Watchdog works by intercepting communication between Claude Desktop and MCP servers. It does this by inserting a transparent proxy (`mcp_proxy.py`) that:
@@ -354,11 +356,37 @@ detector = SimpleTopicAnomalyDetector(sensitivity=0.5)
 
 ## 🗺️ Roadmap
 
-- [ ] 🌐 Web dashboard
-- [ ] 📧 Email/Slack alerts
-- [ ] 🤖 Advanced ML models
-- [ ] 📈 Multi-session analytics
-- [ ] ⚡ Automated responses
+### Current Detection Method
+MCP-Watchdog currently uses a simple topic-based anomaly detection that identifies unusual vocabulary in MCP requests. While effective for basic monitoring, this approach has limitations.
+
+### Planned Improvements
+
+#### Enhanced Detection Algorithms
+- [ ] **N-gram Pattern Analysis**: Capture phrase-level patterns instead of just individual words
+- [ ] **Sequence Anomaly Detection**: Identify unusual command sequences and temporal patterns
+- [ ] **Contextual Analysis**: Consider relationships between consecutive requests
+- [ ] **Advanced ML Models**: 
+  - Isolation Forest for outlier detection
+  - Autoencoders for complex pattern learning
+  - LSTM networks for time-series analysis
+- [ ] **Behavioral Profiling**: User-specific baselines and per-tool thresholds
+
+#### System Features
+- [ ] 🌐 Web dashboard with real-time visualization
+- [ ] 📧 Multi-channel alerts (Email, Slack, Discord, SMS)
+- [ ] 📊 Statistical analysis and reporting
+- [ ] 🔄 Continuous learning from verified false positives
+- [ ] ⚡ Automated response actions (block, alert, log)
+- [ ] 🔍 Forensic analysis tools for incident investigation
+- [ ] 🎯 Rule-based detection to complement ML approaches
+- [ ] 📈 Performance metrics and detection accuracy tracking
+
+#### Integration & Deployment
+- [ ] Docker containerization
+- [ ] Cloud deployment options (AWS, Azure, GCP)
+- [ ] Integration with SIEM systems
+- [ ] REST API for external integrations
+- [ ] Multi-OS support (macOS, Linux)
 
 ## 🤝 Contributing
 
