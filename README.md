@@ -1,4 +1,4 @@
-# 🛡️ MCPSentinel
+# 🛡️ MCP-Watchdog
 
 <p align="center">
   <strong>Real-time Anomaly Detection for MCP (Model Context Protocol) Communications</strong>
@@ -22,7 +22,7 @@
 
 ## ⚠️ Important Notice
 
-**MCPSentinel is currently in BETA status and is NOT suitable for production use.** This tool is:
+**MCP-Watchdog is currently in BETA status and is NOT suitable for production use.** This tool is:
 - 🧪 Experimental and under active development
 - 🐛 May contain bugs and unexpected behaviors
 - 📊 Not thoroughly tested in all environments
@@ -34,7 +34,7 @@
 
 ## 🎯 Overview
 
-MCPSentinel is a lightweight security monitoring tool that captures and analyzes communications between Claude Desktop and MCP servers, detecting anomalous patterns in real-time without requiring complex policy definitions.
+MCP-Watchdog is a lightweight security monitoring tool that captures and analyzes communications between Claude Desktop and MCP servers, detecting anomalous patterns in real-time without requiring complex policy definitions.
 
 ## 📖 Background
 
@@ -46,7 +46,7 @@ Traditional DLP (Data Loss Prevention) approaches require:
 - ⚙️ Custom policy creation and maintenance
 - ⏱️ Significant time and effort investment
 
-**MCPSentinel takes a different approach**: Instead of predefined rules, it learns normal usage patterns from legitimate users and detects anomalies based on behavioral deviations. This is the first known attempt at applying anomaly detection to MCP traffic.
+**MCP-Watchdog takes a different approach**: Instead of predefined rules, it learns normal usage patterns from legitimate users and detects anomalies based on behavioral deviations. This is the first known attempt at applying anomaly detection to MCP traffic.
 
 ## ✨ Features
 
@@ -68,8 +68,8 @@ Traditional DLP (Data Loss Prevention) approaches require:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/MCPSentinel.git
-cd MCPSentinel
+git clone https://github.com/yourusername/MCP-Watchdog.git
+cd MCP-Watchdog
 
 # Install dependencies
 pip install -r requirements.txt
@@ -79,7 +79,7 @@ pip install -r requirements.txt
 
 ### Understanding the Proxy Setup
 
-MCPSentinel works by intercepting communication between Claude Desktop and MCP servers. It does this by inserting a transparent proxy (`mcp_proxy.py`) that:
+MCP-Watchdog works by intercepting communication between Claude Desktop and MCP servers. It does this by inserting a transparent proxy (`mcp_proxy.py`) that:
 - Captures all MCP protocol messages
 - Logs them for analysis
 - Forwards them unchanged to maintain functionality
@@ -100,14 +100,14 @@ The `setup_proxy.py` script automatically modifies your Claude Desktop configura
 }
 ```
 
-**After (With MCPSentinel Proxy):**
+**After (With MCP-Watchdog Proxy):**
 ```json
 {
   "mcpServers": {
     "filesystem": {
       "command": "python",
       "args": [
-        "C:\\path\\to\\MCPSentinel\\mcp_proxy.py",
+        "C:\\path\\to\\MCP-Watchdog\\mcp_proxy.py",
         "filesystem",
         "npx",
         "-y",
@@ -168,9 +168,9 @@ python setup_proxy.py --admin
 </details>
 
 <details>
-<summary><b>❌ Want to remove MCPSentinel</b></summary>
+<summary><b>❌ Want to remove MCP-Watchdog</b></summary>
 
-To completely remove MCPSentinel and restore original configuration:
+To completely remove MCP-Watchdog and restore original configuration:
 ```bash
 # Option 1: Reset configuration
 python setup_proxy.py --reset
@@ -282,7 +282,7 @@ Expected: customer, support, service
 ## 📁 Project Structure
 
 ```
-MCPSentinel/
+MCP-Watchdog/
 ├── 🔌 mcp_proxy.py              # Communication interceptor
 ├── 🧠 mcp_anomaly_detector.py   # ML-based detection engine
 ├── 📊 mcp_baseline_builder.py   # Pattern learning tool
@@ -376,7 +376,7 @@ MIT License
 
 ## 💬 Support
 
-Found a bug? Have a question? Please [open an issue](https://github.com/yourusername/MCPSentinel/issues).
+Found a bug? Have a question? Please [open an issue](https://github.com/yourusername/MCP-Watchdog/issues).
 
 ---
 
