@@ -240,7 +240,7 @@ This will:
 ### 3️⃣ Build Baseline
 Once you have collected sufficient data (recommended: at least 10-20 sessions):
 ```bash
-python mcp_baseline_builder.py
+python baseline_builder.py
 ```
 This will analyze all captured sessions and create a baseline of normal behavior.
 
